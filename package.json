@@ -1,0 +1,11 @@
+{
+  "name": "nemusbackend",
+  "version": "1.0.0",
+  "description": "Docusign Hack 2019",
+  "main": "server.js",
+  "scripts": {
+    "test": "node  server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
