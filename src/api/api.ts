@@ -13,6 +13,7 @@ export class Api {
     const router: Router = Router();
     router.get("/status", statusController.getStatus);
     router.get("/parks", parksController.getParks);
+    router.get("/parks/:parkId", parksController.getPark);
     router.get("/parks/:parkId/passes", passesController.getPasses);
     router.post("/parks/:parkId/danger", parksController.setDangerLevel);
     router.post("/parks/:parkId/notify", notificiationsController.sendNotification);
