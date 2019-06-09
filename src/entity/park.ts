@@ -32,4 +32,7 @@ export class Park {
 
   @Column()
   number: string;
+
+  @Column()
+  description: string;
 }
