@@ -7,7 +7,15 @@ import { getCurrentTrips } from "./helpers";
 export const registerPhone = async (req: Request, res: Response) => {
   const phonesRepository = getManager().getRepository(Phone);
 
-  const phone = new Phone();
+  let phone = await phonesRepository.findOne({where: {
+    token: req.body["token"],
+  }});
+
+  if (phone !== undefined) {
+    return;
+  }
+
+  phone = new Phone();
   phone.token = req.body["token"];
   phone.user = req.params.userId;
 
@@ -23,7 +31,7 @@ export const sendNotification = async (req: Request, res: Response) => {
 
   for (const trip of trips) {
     const phones =  await phonesRepository.find({ where: {
-      userId: trip.user.id,
+      userId: trip.user,
     }});
 
     for (const phone of phones) {
@@ -31,7 +39,7 @@ export const sendNotification = async (req: Request, res: Response) => {
         method: "POST",
         uri: "https://exp.host/--/api/v2/push/send",
         body: {
-          to: `ExponentPushToken[${phone.token}]`,
+          to: phone.token,
           title: "Alert for your current trip!",
           body: `The fire alert changed to ${req.body.status}`,
         },
