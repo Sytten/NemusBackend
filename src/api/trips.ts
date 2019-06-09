@@ -20,6 +20,10 @@ export const createTrip = async (req: Request, res: Response) => {
   trip.user = req.params.userId;
   trip.numberPeople = req.body["numberPeople"];
 
+  if (!!req.body["licensePlate"]) {
+    trip.licensePlate = req.body["licensePlate"];
+  }
+
   await tripsRepository.save(trip);
 
   res.sendStatus(201);
