@@ -7,12 +7,8 @@ export const getTrips = async (req: Request, res: Response) => {
 
   const trips = await tripsRepository.find({ where: {
     userId: req.params.userId },
-    join: {
-      alias: "trip",
-      leftJoinAndSelect: {
-        pass: "trip.pass",
-      },
-    }});
+    relations: ["pass", "pass.park"],
+  });
 
   res.send(trips);
 };
