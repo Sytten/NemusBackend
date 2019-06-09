@@ -16,6 +16,7 @@ export class Api {
     router.get("/parks/:parkId/passes", passesController.getPasses);
     router.post("/parks/:parkId/danger", parksController.setDangerLevel);
     router.post("/parks/:parkId/notify", notificiationsController.sendNotification);
+    router.get("/parks/:parkId/people", parksController.getPeople);
 
     router.get("/users", usersController.getUserByEmail);
     router.post("/users", usersController.createUser);
