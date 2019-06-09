@@ -17,4 +17,7 @@ export class Park {
 
   @Column()
   imageTag: string;
+
+  @Column()
+  dangerLevel: string;
 }

@@ -22,4 +22,7 @@ export class Trip {
 
   @Column()
   numberPeople: number;
+
+  @Column({nullable: true})
+  licensePlate?: string | null;
 }

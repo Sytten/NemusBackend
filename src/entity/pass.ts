@@ -18,4 +18,7 @@ export class Pass {
 
   @Column()
   maxPeople: number;
+
+  @Column()
+  fee: number;
 }
