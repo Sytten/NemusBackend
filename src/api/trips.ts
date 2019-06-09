@@ -5,9 +5,16 @@ import { Request, Response } from "express";
 export const getTrips = async (req: Request, res: Response) => {
   const tripsRepository = getManager().getRepository(Trip);
 
-  res.send(await tripsRepository.find({ where: {
+  const trips = await tripsRepository.find({ where: {
     userId: req.params.userId },
-  }));
+    join: {
+      alias: "trip",
+      leftJoinAndSelect: {
+        pass: "trip.pass",
+      },
+    }});
+
+  res.send(trips);
 };
 
 export const createTrip = async (req: Request, res: Response) => {

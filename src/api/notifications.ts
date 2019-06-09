@@ -12,7 +12,7 @@ export const registerPhone = async (req: Request, res: Response) => {
   }});
 
   if (phone !== undefined) {
-    res.sendStatus(200);;
+    res.sendStatus(200);
     return;
   }
 
