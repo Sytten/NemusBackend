@@ -7,7 +7,7 @@
         "watch": "cross-env NODE_ENV=development nodemon",
         "build": "tsc",
         "tslint": "tslint -c tslint.json -p tsconfig.json",
-        "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js" 
+        "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
     },
     "author": "",
     "license": "ISC",
