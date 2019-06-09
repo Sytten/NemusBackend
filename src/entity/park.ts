@@ -20,4 +20,16 @@ export class Park {
 
   @Column()
   dangerLevel: string;
+
+  @Column()
+  rating: number;
+
+  @Column()
+  address: string;
+
+  @Column()
+  website: string;
+
+  @Column()
+  number: string;
 }
