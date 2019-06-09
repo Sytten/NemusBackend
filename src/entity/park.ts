@@ -14,4 +14,7 @@ export class Park {
 
   @Column({ type: "float" })
   longitude: number;
+
+  @Column()
+  imageTag: string;
 }
